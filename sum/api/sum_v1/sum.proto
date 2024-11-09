@@ -2,9 +2,7 @@ syntax = "proto3";
 
 package sum;
 
-import "google/protobuf/timestamp.proto";
-
-option go_package = "github.com/olezhek28/clean-architecture/pkg/user_v1;user_v1";
+option go_package = "sum/pkg/sum_v1;sum";
 
 service Sum {
   rpc Calculate(CalculateRequest) returns (CalculateResponse);
@@ -12,21 +10,24 @@ service Sum {
 }
 
 message CalculateRequest {
-  int64 a = 1;
-  int64 b = 2;
+  string a = 1;
+  string b = 2;
+  uint32 rounding = 3;
 }
 
-message CreateResponse {
-  int64 c = 1;
+message CalculateResponse {
+  string c = 1;
 }
 
 message CalculateFractionalRequest {
-  int64 a1 = 1;
-  int64 a2 = 2;
-  int64 b = 3;
-  int64 b = 4;
+  string a1 = 1;
+  string a2 = 2;
+  string b1 = 3;
+  string b2 = 4;
+  uint32 rounding = 5;
 }
 
 message CalculateFractionalResponse {
-  int64 c = 1;
+  string c1 = 1;
+  string c2 = 2;
 }
