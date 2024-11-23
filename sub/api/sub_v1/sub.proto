@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package sub;
+
+option go_package = "sum/pkg/sub_v1;sub";
+
+service Sub {
+  rpc Calculate(CalculateRequest) returns (CalculateResponse);
+  rpc CalculateFractional(CalculateFractionalRequest) returns (CalculateFractionalResponse);
+}
+
+message CalculateRequest {
+  string a = 1;
+  string b = 2;
+  uint32 rounding = 3;
+}
+
+message CalculateResponse {
+  string c = 1;
+}
+
+message CalculateFractionalRequest {
+  string a1 = 1;
+  string a2 = 2;
+  string b1 = 3;
+  string b2 = 4;
+  uint32 rounding = 5;
+}
+
+message CalculateFractionalResponse {
+  string c1 = 1;
+  string c2 = 2;
+}

@@ -11,6 +11,8 @@ const (
 	serviceSumAdressEnvName  = "SERVICE_SUM_ADDRESS"
 	serviceRootName          = "root"
 	serviceRootAdressEnvName = "SERVICE_ROOT_ADDRESS"
+	serviceSubName           = "sub"
+	serviceSubAdressEnvName  = "SERVICE_SUB_ADDRESS"
 )
 
 const (

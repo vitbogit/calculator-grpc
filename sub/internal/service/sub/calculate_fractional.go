@@ -1,12 +1,12 @@
-package sum
+package sub
 
 import (
 	"context"
 	"fmt"
 	"math/big"
 
-	"sum/internal/model"
-	"sum/pkg/math"
+	"sub/internal/model"
+	mymath "sub/pkg/math"
 )
 
 func (s *service) CalculateFractional(ctx context.Context, input model.Fractionals, rounding uint32) (model.Fractional, error) {
@@ -41,15 +41,15 @@ func (s *service) CalculateFractional(ctx context.Context, input model.Fractiona
 	b1Int, _ := b1.Int64()
 	b2Int, _ := b2.Int64()
 
-	LCM, k1, k2 := math.LCMWithCoeffs(a2Int, b2Int)
+	LCM, k1, k2 := mymath.LCMWithCoeffs(a2Int, b2Int)
 
 	fmt.Println("debug a1 a2 b1 b2 ", a1Int, a2Int, b1Int, b2Int)
 	fmt.Println("debug LCM ", LCM, k1, k2)
 
-	c1Int := a1Int*k1 + b1Int*k2
+	c1Int := a1Int*k1 - b1Int*k2
 	c2Int := LCM
 	fmt.Println("debug c1 c2 ", c1Int, c2Int)
-	c1c2gcd := math.GCD(c1Int, c2Int)
+	c1c2gcd := mymath.GCD(c1Int, c2Int)
 	c1Int = c1Int / abs(c1c2gcd)
 	c2Int = c2Int / abs(c1c2gcd)
 	fmt.Println("debug c1 c2 ", c1Int, c2Int)

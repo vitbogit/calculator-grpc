@@ -44,6 +44,9 @@ func (s *service) Call(ctx context.Context, call model.CallRequest) (*model.Calc
 
 		case serviceRootName:
 			lastCalcResponse, callNumber, err = RootService(&service, &callNumber, &call, lastCalcResponse)
+
+		case serviceSubName:
+			lastCalcResponse, callNumber, err = SubService(&service, &callNumber, &call, lastCalcResponse)
 		}
 		if err != nil {
 			return nil, fmt.Errorf("service err: %s", err.Error())
