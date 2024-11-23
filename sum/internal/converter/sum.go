@@ -35,12 +35,17 @@ import (
 // 	}
 // }
 
+const (
+	SetPrec = 256
+	MaxPrec = 50
+)
+
 func ToFloatsFromDesc(info *desc.CalculateRequest) *model.Floats {
 	a := new(big.Float)
-	a.SetString(info.GetA())
+	a.SetPrec(SetPrec).SetString(info.GetA())
 
 	b := new(big.Float)
-	b.SetString(info.GetB())
+	b.SetPrec(SetPrec).SetString(info.GetB())
 
 	return &model.Floats{
 		A: a,
@@ -50,16 +55,16 @@ func ToFloatsFromDesc(info *desc.CalculateRequest) *model.Floats {
 
 func ToFractionalsFromDesc(info *desc.CalculateFractionalRequest) *model.Fractionals {
 	a1 := new(big.Float)
-	a1.SetString(info.GetA1())
+	a1.SetPrec(SetPrec).SetString(info.GetA1())
 
 	a2 := new(big.Float)
-	a2.SetString(info.GetA2())
+	a2.SetPrec(SetPrec).SetString(info.GetA2())
 
 	b1 := new(big.Float)
-	b1.SetString(info.GetB1())
+	b1.SetPrec(SetPrec).SetString(info.GetB1())
 
 	b2 := new(big.Float)
-	b2.SetString(info.GetB2())
+	b2.SetPrec(SetPrec).SetString(info.GetB2())
 
 	return &model.Fractionals{
 		A1: a1,

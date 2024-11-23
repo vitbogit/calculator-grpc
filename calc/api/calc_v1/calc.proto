@@ -1,0 +1,55 @@
+syntax = "proto3";
+
+package calc;
+
+option go_package = "calc/pkg/calc_v1;calc";
+
+service Calc {
+  rpc Call(CallRequest) returns (CallResponse);
+}
+
+message CalcRequest {
+  optional CalcNFRequest calcNFRequest = 1;
+  optional CalcFRequest calcFRequest = 2;
+}
+
+message CalcResponse {
+  optional CalcNFResponse calcNFResponse = 1;
+  optional CalcFResponse calcFResponse = 2;
+}
+
+message CalcNFRequest {
+  string a = 1;
+  string b = 2;
+  uint32 rounding = 3;
+}
+
+message CalcNFResponse {
+  string c = 1;
+}
+
+message CalcFRequest {
+  string a1 = 1;
+  string a2 = 2;
+  string b1 = 3;
+  string b2 = 4;
+  uint32 rounding = 5;
+}
+
+message CalcFResponse {
+  string c1 = 1;
+  string c2 = 2;
+}
+
+message Services {
+  repeated string services = 1;
+}
+
+message CallRequest {
+  Services services = 1;
+  repeated CalcRequest calcRequests = 2;
+}
+
+message CallResponse {
+  CalcResponse calcResponse = 1;
+}

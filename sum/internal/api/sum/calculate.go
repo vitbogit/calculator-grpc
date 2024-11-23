@@ -12,6 +12,11 @@ import (
 	"google.golang.org/grpc/status"
 )
 
+const (
+	SetPrec = 256
+	MaxPrec = 50
+)
+
 func (i *Implementation) Calculate(ctx context.Context, req *desc.CalculateRequest) (*desc.CalculateResponse, error) {
 	output, err := i.sumService.Calculate(ctx, *converter.ToFloatsFromDesc(req), req.GetRounding())
 	if err != nil {

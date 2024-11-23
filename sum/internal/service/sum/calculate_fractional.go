@@ -50,8 +50,8 @@ func (s *service) CalculateFractional(ctx context.Context, input model.Fractiona
 	c2Int = c2Int / c1c2gcd
 
 	c1, c2 := new(big.Float), new(big.Float)
-	c1.SetInt64(c1Int)
-	c2.SetInt64(c2Int)
+	c1.SetPrec(SetPrec).SetInt64(c1Int)
+	c2.SetPrec(SetPrec).SetInt64(c2Int)
 
 	return model.Fractional{
 		C1: c1,

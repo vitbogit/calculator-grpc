@@ -14,7 +14,7 @@ func (i *Implementation) CalculateFractional(ctx context.Context, req *desc.Calc
 	}
 
 	return &desc.CalculateFractionalResponse{
-		C1: output.C1.String(),
-		C2: output.C2.String(),
+		C1: output.C1.Text('f', int(req.GetRounding())),
+		C2: output.C2.Text('f', int(req.GetRounding())),
 	}, nil
 }
