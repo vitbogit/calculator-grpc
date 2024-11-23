@@ -63,8 +63,8 @@ func (s *service) CalculateFractional(ctx context.Context, input model.Fractiona
 	c1Int, _ := c1Raw.Int64()
 	c2Int, _ := c2Raw.Int64()
 	c1c2gcd := mymath.GCD(c1Int, c2Int)
-	c1Int = c1Int / c1c2gcd
-	c2Int = c2Int / c1c2gcd
+	c1Int = c1Int / abs(c1c2gcd)
+	c2Int = c2Int / abs(c1c2gcd)
 
 	c1, c2 := new(big.Float), new(big.Float)
 	c1.SetInt64(c1Int)
@@ -74,4 +74,11 @@ func (s *service) CalculateFractional(ctx context.Context, input model.Fractiona
 		C1: c1,
 		C2: c2,
 	}, nil
+}
+
+func abs(x int64) int64 {
+	if x < 0 {
+		return -x
+	}
+	return x
 }

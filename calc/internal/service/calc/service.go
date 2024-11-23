@@ -13,6 +13,14 @@ const (
 	serviceRootAdressEnvName = "SERVICE_ROOT_ADDRESS"
 	serviceSubName           = "sub"
 	serviceSubAdressEnvName  = "SERVICE_SUB_ADDRESS"
+	serviceMulName           = "mul"
+	serviceMulAdressEnvName  = "SERVICE_MUL_ADDRESS"
+	serviceDivName           = "div"
+	serviceDivAdressEnvName  = "SERVICE_DIV_ADDRESS"
+	servicePercName          = "perc"
+	servicePercAdressEnvName = "SERVICE_PERC_ADDRESS"
+	servicePowName           = "pow"
+	servicePowAdressEnvName  = "SERVICE_POW_ADDRESS"
 )
 
 const (

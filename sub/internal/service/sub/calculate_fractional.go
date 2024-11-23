@@ -41,6 +41,15 @@ func (s *service) CalculateFractional(ctx context.Context, input model.Fractiona
 	b1Int, _ := b1.Int64()
 	b2Int, _ := b2.Int64()
 
+	if a2Int < 0 {
+		a1Int *= -1
+		a2Int *= -1
+	}
+	if b2Int < 0 {
+		b1Int *= -1
+		b2Int *= -1
+	}
+
 	LCM, k1, k2 := mymath.LCMWithCoeffs(a2Int, b2Int)
 
 	fmt.Println("debug a1 a2 b1 b2 ", a1Int, a2Int, b1Int, b2Int)
