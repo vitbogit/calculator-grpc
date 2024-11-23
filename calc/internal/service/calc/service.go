@@ -7,8 +7,10 @@ import (
 )
 
 const (
-	serviceSumName          = "sum"
-	serviceSumAdressEnvName = "SERVICE_SUM_ADDRESS"
+	serviceSumName           = "sum"
+	serviceSumAdressEnvName  = "SERVICE_SUM_ADDRESS"
+	serviceRootName          = "root"
+	serviceRootAdressEnvName = "SERVICE_ROOT_ADDRESS"
 )
 
 const (

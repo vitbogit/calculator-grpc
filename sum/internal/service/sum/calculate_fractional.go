@@ -43,11 +43,16 @@ func (s *service) CalculateFractional(ctx context.Context, input model.Fractiona
 
 	LCM, k1, k2 := math.LCMWithCoeffs(a2Int, b2Int)
 
+	fmt.Println("debug a1 a2 b1 b2 ", a1Int, a2Int, b1Int, b2Int)
+	fmt.Println("debug LCM ", LCM, k1, k2)
+
 	c1Int := a1Int*k1 + b1Int*k2
 	c2Int := LCM
+	fmt.Println("debug c1 c2 ", c1Int, c2Int)
 	c1c2gcd := math.GCD(c1Int, c2Int)
 	c1Int = c1Int / c1c2gcd
 	c2Int = c2Int / c1c2gcd
+	fmt.Println("debug c1 c2 ", c1Int, c2Int)
 
 	c1, c2 := new(big.Float), new(big.Float)
 	c1.SetPrec(SetPrec).SetInt64(c1Int)
